@@ -79,7 +79,7 @@ region_pie = (
             opacity=alt.condition(region_select, alt.value(1), alt.value(0.25)),
         )
     )
-   .add_selection(region_select)
+    .add_selection(region_select)
     .properties(title="Region Sales")
 )
 
@@ -150,7 +150,7 @@ sellers_monthly_pie = (
     .properties(width=150, height=150, title="Sellers transactions per month")
 )
 
-top_row = alt.hconcat(region_pie,region_summary)
-full_chart = alt.vconcat(top_row,sellers_monthly_pie)
+top_row = region_pie | region_summary
+full_chart = top_row & sellers_monthly_pie
 st.altair_chart(full_chart)
 
