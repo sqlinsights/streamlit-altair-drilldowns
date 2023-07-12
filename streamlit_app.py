@@ -4,8 +4,6 @@ import pandas as pd
 import numpy as np
 
 st.set_page_config(layout="wide")
-st.__version__
-alt.__version__
 regions = ["LATAM", "EMEA", "NA", "APAC"]
 colors = [
     "#aa423a",
