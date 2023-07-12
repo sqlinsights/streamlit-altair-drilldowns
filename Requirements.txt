@@ -1,2 +1,3 @@
 streamlit
 altair==4.2.2
+jsonschema==4.16.0
