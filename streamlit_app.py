@@ -153,3 +153,4 @@ sellers_monthly_pie = (
 top_row = region_pie | region_summary
 full_chart = top_row & sellers_monthly_pie
 st.altair_chart(full_chart)
+
