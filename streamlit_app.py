@@ -57,8 +57,8 @@ def get_data():
 
 
 sales_data = get_data()
-st.dataframe(sales_data)
-#region_select = alt.selection_single(fields=["region"], empty="all")
+
+region_select = alt.selection_single(fields=["region"], empty="all")
 region_pie = (
     (
         alt.Chart(sales_data)
@@ -79,7 +79,7 @@ region_pie = (
             opacity=alt.condition(region_select, alt.value(1), alt.value(0.25)),
         )
     )
-   # .add_selection(region_select)
+   .add_selection(region_select)
     .properties(title="Region Sales")
 )
 
@@ -146,11 +146,11 @@ sellers_monthly_pie = (
             tooltip=alt.Tooltip(["sum(transaction_amount)", "month(transaction_date)"]),
         )
     )
-    #.transform_filter(region_select)
+    .transform_filter(region_select)
     .properties(width=150, height=150, title="Sellers transactions per month")
 )
 
-top_row = region_pie | region_summary
-full_chart = top_row & sellers_monthly_pie
+top_row = alt.hconcat(region_pie,region_summary)
+full_chart = alt.vconcat(top_row,sellers_monthly_pie)
 st.altair_chart(full_chart)
 
