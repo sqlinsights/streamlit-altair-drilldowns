@@ -57,7 +57,7 @@ def get_data():
 
 
 sales_data = get_data()
-
+st.dataframe(sales_data)
 #region_select = alt.selection_single(fields=["region"], empty="all")
 region_pie = (
     (
