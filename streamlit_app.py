@@ -150,7 +150,7 @@ sellers_monthly_pie = (
     .properties(width=150, height=150, title="Sellers transactions per month")
 )
 
-top_row = region_pie | region_summary
-full_chart = top_row & sellers_monthly_pie
-st.altair_chart(full_chart)
+#top_row = region_pie | region_summary
+#full_chart = top_row & sellers_monthly_pie
+#st.altair_chart(full_chart)
 
